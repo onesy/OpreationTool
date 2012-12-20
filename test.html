@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Intergrated Test Page</title>
+<script type="text/javascript" src="jq.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#sendMsg").click(function(){
+        result = $.ajax({
+            url:$("#AjaxUrl").val()
+            ,data:$("#AjaxContent").val()
+            ,type:$("#AjaxMethod").val()
+            , success:function(data1){
+                $("#result").attr("value") = data1;
+            }
+        });
+    });
+});
+</script>
+</head>
+<form>
+Url:<input type="text" name="AjaxUrl" id="AjaxUrl" />
+<br />
+Content:<input type="text" name="AjaxContent" id="AjaxContent" />
+<br />
+Method:<input type="text" name="AjaxMethod" id="AjaxMethod" />
+<input type="button" value="GO!!" id="sendMsg" />
+</form>
+<div>
+<input type="textarea" id="result"/>
+</div>
+</html>
